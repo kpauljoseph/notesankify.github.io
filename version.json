@@ -1,0 +1,13 @@
+{
+  "latest_version": "0.1.0",
+  "min_version": "0.1.0",
+  "download_url": "https://notesankify.com/download",
+  "release_notes_url": "https://notesankify.com/releases/0.1.0",
+  "update_message": "What's new in 0.1.0:\n- Improved PDF processing\n- Better Anki integration\n- Bug fixes and performance improvements",
+  "force_update": false,
+  "platform_downloads": {
+    "windows": "https://notesankify.com/download/windows",
+    "darwin": "https://notesankify.com/download/mac",
+    "linux": "https://notesankify.com/download/linux"
+  }
+}
