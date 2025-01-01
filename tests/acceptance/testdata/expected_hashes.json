@@ -1,0 +1,102 @@
+[
+  {
+    "filename": "A4_size_normalPage_TopQnBottomAns_without_markers.pdf",
+    "pages": {
+      "1": {
+        "hash": "dea7de4ece6354ded20f6d333ba8f8ddc872ac1cd5cb9a5151d44a25770a4f60"
+      },
+      "2": {
+        "hash": "25ebae2e0a019209ab17ae8b10cd9fa20517bd8777957e6ff9c88b69b536b51a"
+      },
+      "3": {
+        "hash": "843f56871ded6f60946db41f5cffdf5764094682ef6065191b5778eaed0bba6c"
+      },
+      "4": {
+        "hash": "23a5f16467c840eb2fa433e520ebba51316c47d413bb2e74d81d6ad18c76cc82"
+      },
+      "5": {
+        "hash": "b7a0d1b623f60a8b0e71836de666e89f7f7a187fa8e7e54188b813bf2395b0e9"
+      }
+    }
+  },
+  {
+    "filename": "mixedSize_allPages_topQuestionBottomAnswer.pdf",
+    "pages": {
+      "1": {
+        "hash": "9d903616d87b38ac2de19feb28e626e7ba2101c7929b2d177e381614862a65df"
+      },
+      "2": {
+        "hash": "04cd0570b75074f8b24baf32d0326708e46a5f0d579f996c3d7fdfbb3e63567c"
+      },
+      "3": {
+        "hash": "404e7446af9edf5b43d1e0d32dc2ec759b237b81f453d5861c2e47ffc49d7ea6"
+      },
+      "4": {
+        "hash": "1730ee59b00e4f2b1fa2967b6c34123e3bccffeff6896df75f66ffe088d4681e"
+      },
+      "5": {
+        "hash": "83a7cc528dd0862c7011a29fc0069fb7e3767995eb8bcfb7863a2e9a415161fe"
+      }
+    }
+  },
+  {
+    "filename": "mixed_content_largeNormalPage_smallFlashcardPage.pdf",
+    "pages": {
+      "2": {
+        "hash": "0feb66cde09c6abca311093375cf406cae9d09d3bd24cb58b21a9bec262504fa"
+      },
+      "3": {
+        "hash": "cd802a7bd33e92dbf782b3f340089dff5454400eddf54d3ad2e86d66c0495fcb"
+      },
+      "5": {
+        "hash": "2a470eda0f23acc6077867a4a710957557d7a307073fbf0c9acbcba2a5f2c2c5"
+      },
+      "6": {
+        "hash": "70e9cdd2d88506173cf9a746d3ffc42a12b1923556680d3839f955a70ebf46f8"
+      },
+      "8": {
+        "hash": "3e6f112d54d71c7b6bd4e87c055a2b82a4cb12272f1310c94fd6712a798bab4c"
+      }
+    }
+  },
+  {
+    "filename": "mixed_content_sameSizeNormalPage_sameSizeFlashcardPage.pdf",
+    "pages": {
+      "2": {
+        "hash": "65bc3c219a60356f01dd77dc6afdba9c92146887c860d0dd4fe514d914bd4dcc"
+      },
+      "3": {
+        "hash": "633f05bba243feaf3bd4a894ba54acf93fe36743faa5106dedb3e2b4e59a3480"
+      },
+      "5": {
+        "hash": "e0a59204785cc771d17a56e7e128922911c8c9816a66220d49bfe98c17b22f93"
+      },
+      "6": {
+        "hash": "3ce83f945ba487ccf95a4cec5a7d17d482199512c2672140e4be5bb955f58ad2"
+      },
+      "8": {
+        "hash": "c8828191c6ed4174120b6c4b6f3911f6e1c6b7b0b8f4c7bcacaa1c7743d8f56f"
+      }
+    }
+  },
+  {
+    "filename": "standard_flashcards.pdf",
+    "pages": {
+      "1": {
+        "hash": "2db05124fb07a99c1d7dd2a2ceed71b0f288bb10e79e4adcb66f76f343babfad"
+      },
+      "2": {
+        "hash": "85e67a7fb96333f9756f81b5c1cbe7d3d3381d9fe60b5cdb0b3d1431b9f4dd7a"
+      },
+      "3": {
+        "hash": "17d9a8de8faa7552f3f71c1e09638dbedc12b2354f0735fae42b582b9e1617e6"
+      },
+      "4": {
+        "hash": "478350b0e2023216561c78e0f7561f8126cb13e29982aaed95a70faa9d321b6a"
+      },
+      "5": {
+        "hash": "1c61882f43cdeb4fece4b2b9662b97051b46c6bf01b6cf1ff55916f29ab481f7"
+      }
+    }
+  }
+]
