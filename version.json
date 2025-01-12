@@ -1,13 +1,14 @@
 {
-  "latest_version": "0.1.0",
-  "min_version": "0.1.0",
-  "download_url": "https://notesankify.com/download",
-  "release_notes_url": "https://notesankify.com/releases/0.1.0",
-  "update_message": "What's new in 0.1.0:\n- Improved PDF processing\n- Better Anki integration\n- Bug fixes and performance improvements",
-  "force_update": false,
-  "platform_downloads": {
-    "windows": "https://notesankify.com/download/windows",
-    "darwin": "https://notesankify.com/download/mac",
-    "linux": "https://notesankify.com/download/linux"
-  }
+    "latest_version": "v0.1.0",
+    "min_version": "v0.1.0",
+    "download_url": "https://notesankify.github.io/download",
+    "update_message": "New version v0.1.0 is available with improvements and bug fixes!",
+    "force_update": false,
+    "platform_downloads": {
+        "windows-amd64": "https://github.com/kpauljoseph/notesankify/releases/latest/download/NotesAnkify-windows-amd64.exe",
+        "windows-arm64": "https://github.com/kpauljoseph/notesankify/releases/latest/download/NotesAnkify-windows-arm64.exe",
+        "darwin-amd64": "https://github.com/kpauljoseph/notesankify/releases/latest/download/NotesAnkify-darwin-amd64.zip",
+        "darwin-arm64": "https://github.com/kpauljoseph/notesankify/releases/latest/download/NotesAnkify-darwin-arm64.zip",
+        "linux-amd64": "https://github.com/kpauljoseph/notesankify/releases/latest/download/NotesAnkify-linux-amd64.tar.xz"
+    }
 }
