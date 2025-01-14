@@ -1,7 +1,6 @@
 {
     "latest_version": "v0.1.1",
     "min_version": "v0.1.1",
-    "download_url": "https://notesankify.github.io/download",
     "update_message": "New version v0.1.1 is available with improvements and bug fixes!",
     "force_update": false,
     "platform_downloads": {
