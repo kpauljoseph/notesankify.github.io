@@ -76,17 +76,6 @@
             transform: translate(-4px, -4px);
             box-shadow: 12px 12px 0 var(--secondary);
         }
-
-        .download-button.recommended {
-            background: #ff5252; /* Using the accent color */
-            transform: scale(1.05) translate(-4px, -4px);
-            font-weight: 800;
-        }
-
-        .download-button.recommended:hover {
-            background: #ff5252; /* Slightly darker shade for hover */
-            transform: scale(1.05) translate(0, 0);
-        }
     </style>
 
     <!-- Analytics -->
@@ -234,10 +223,10 @@
                     </div>
                     <h3 class="text-2xl font-bold text-center mb-6">Windows</h3>
                     <div class="space-y-4">
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows-amd64">
+                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows/amd64">
                             Download for Intel/AMD
                         </a>
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows-arm64">
+                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows/arm64">
                             Download for ARM
                         </a>
                     </div>
@@ -252,7 +241,7 @@
                     </div>
                     <h3 class="text-2xl font-bold text-center mb-6">macOS</h3>
                     <div class="space-y-4">
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="darwin-universal">
+                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="macos/all">
                             Download for macOS
                         </a>
                     </div>
@@ -267,7 +256,7 @@
                     </div>
                     <h3 class="text-2xl font-bold text-center mb-6">Linux</h3>
                     <div class="space-y-4">
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="linux-amd64">
+                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="linux/amd64">
                             Download for Linux
                         </a>
                     </div>
@@ -295,17 +284,6 @@
             try {
                 const response = await fetch('/version.json');
                 const versionInfo = await response.json();
-
-                // Determine recommended platform
-                let recommendedPlatform = '';
-
-                if (/Macintosh/.test(navigator.userAgent)) {
-                    recommendedPlatform = 'darwin-universal';
-                } else if (/Windows/.test(navigator.userAgent)) {
-                    recommendedPlatform = navigator.userAgent.includes('ARM') ? 'windows-arm64' : 'windows-amd64';
-                } else if (/Linux/.test(navigator.userAgent)) {
-                    recommendedPlatform = 'linux-amd64';
-                }
 
                 // Update all download links
                 document.querySelectorAll('[data-platform]').forEach(link => {
