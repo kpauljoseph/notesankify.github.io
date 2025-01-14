@@ -1,13 +1,13 @@
 {
-    "latest_version": "v0.1.0",
-    "min_version": "v0.1.0",
+    "latest_version": "v0.1.1",
+    "min_version": "v0.1.1",
     "download_url": "https://notesankify.github.io/download",
-    "update_message": "New version v0.1.0 is available with improvements and bug fixes!",
+    "update_message": "New version v0.1.1 is available with improvements and bug fixes!",
     "force_update": false,
     "platform_downloads": {
-        "windows/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.0/NotesAnkify-windows-amd64.zip",
-        "windows/arm64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.0/NotesAnkify-windows-arm64.zip",
-        "darwin/all": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.0/NotesAnkify-darwin-universal.zip",
-        "linux/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.0/NotesAnkify-linux-amd64.tar.xz"
+        "windows/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-amd64.zip",
+        "windows/arm64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-arm64.zip",
+        "macos/all": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-macos-universal.zip",
+        "linux/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-linux-amd64.tar.xz"
     }
 }
