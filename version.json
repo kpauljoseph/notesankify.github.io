@@ -7,7 +7,7 @@
     "platform_downloads": {
         "windows/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-amd64.zip",
         "windows/arm64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-arm64.zip",
-        "macos/all": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-macos-universal.zip",
+        "darwin/all": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-macos-universal.zip",
         "linux/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-linux-amd64.tar.xz"
     }
 }
