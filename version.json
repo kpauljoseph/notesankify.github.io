@@ -4,9 +4,9 @@
     "update_message": "New version v0.1.1 is available with improvements and bug fixes!",
     "force_update": false,
     "platform_downloads": {
-        "windows/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-amd64.zip",
-        "windows/arm64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-arm64.zip",
-        "darwin/all": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-macos-universal.zip",
-        "linux/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-linux-amd64.tar.xz"
+        "windows/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-amd64-v0.1.1.zip",
+        "windows/arm64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-windows-arm64-v0.1.1.zip",
+        "darwin/all": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-macos-universal-v0.1.1.dmg",
+        "linux/amd64": "https://github.com/kpauljoseph/notesankify/releases/download/v0.1.1/NotesAnkify-linux-amd64-v0.1.1.tar.xz"
     }
 }
