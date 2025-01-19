@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>NotesAnkify Documentation - User Guide and Reference</title>
+    <meta name="title" content="NotesAnkify Documentation - User Guide and Reference">
+    <meta name="description" content="Complete guide to using NotesAnkify. Learn how to convert your PDF notes into Anki flashcards efficiently with detailed instructions and best practices.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notesankify.com/docs">
+    <meta property="og:title" content="NotesAnkify Documentation">
+    <meta property="og:description" content="Complete guide to using NotesAnkify. Learn how to convert your PDF notes into Anki flashcards efficiently.">
+    <meta property="og:image" content="https://notesankify.com/assets/images/social-preview.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/NotesAnkify-icon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: rgba(255, 82, 82, 0.8);
+            --primary-dark: #FF5252;
+            --secondary: #2D2D2D;
+            --accent: #4ECDC4;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .neo-gradient {
+            background: var(--primary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            border: 4px solid var(--secondary);
+        }
+
+        .neo-button {
+            background: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.2s ease;
+            transform: translate(-4px, -4px);
+        }
+
+        .neo-button:hover {
+            transform: translate(0, 0);
+            box-shadow: 4px 4px 0 var(--secondary);
+        }
+
+        .neo-card {
+            background: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+        }
+
+        .download-button {
+            background: var(--primary);
+            color: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.2s ease;
+            transform: translate(-4px, -4px);
+        }
+
+        .download-button:hover {
+            transform: translate(0, 0);
+            box-shadow: 4px 4px 0 var(--secondary);
+            background: var(--primary-dark);
+        }
+
+        .feature-card {
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--secondary);
+        }
+
+        .steps-container {
+            counter-reset: step;
+        }
+
+        .step-card {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .step-card::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary);
+            color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Documentation specific styles */
+        .doc-sidebar {
+            position: sticky;
+            top: 5rem;
+            height: calc(100vh - 5rem);
+            overflow-y: auto;
+        }
+
+        .doc-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-top: 2rem;
+            border-top: 4px solid #2D2D2D;
+        }
+
+        .doc-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .doc-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .doc-content ul, .doc-content ol {
+            margin-bottom: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .doc-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-content code {
+            background-color: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+        }
+
+        .doc-sidebar-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #4b5563;
+            border-left: 4px solid transparent;
+        }
+
+        .doc-sidebar-link:hover {
+            color: #FF5252;
+            background-color: #f3f4f6;
+        }
+
+        .doc-sidebar-link.active {
+            color: #FF5252;
+            border-left-color: #FF5252;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white border-b-4 border-gray-900 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <img src="/assets/images/NotesAnkify-icon.svg" alt="NotesAnkify" class="h-10 w-auto">
+                <h1 class="ml-2 text-2xl font-bold text-gray-900">NotesAnkify</h1>
+            </div>
+            <div class="flex items-center space-x-8">
+                <a href="/#features" class="text-gray-900 hover:text-primary font-bold">Features</a>
+                <a href="/#getting-started" class="text-gray-900 hover:text-primary font-bold">Getting Started</a>
+                <a href="#download" class="text-gray-900 hover:text-primary font-bold">Download</a>
+                <a href="/docs" class="text-gray-900 hover:text-primary font-bold">Documentation</a>
+                <a href="/support" class="text-gray-900 hover:text-primary font-bold">Support</a>
+                <a href="https://github.com/kpauljoseph/notesankify"
+                   class="neo-button px-4 py-2 text-gray-900 font-bold"
+                   target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Documentation Content -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Sidebar Navigation -->
+        <div class="lg:w-1/4">
+            <div class="doc-sidebar neo-card p-4">
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2">Getting Started</h3>
+                    <a href="#installation" class="doc-sidebar-link">Installation</a>
+                    <a href="#prerequisites" class="doc-sidebar-link">Prerequisites</a>
+                    <a href="#quick-start" class="doc-sidebar-link">Quick Start Guide</a>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2">Note Preparation</h3>
+                    <a href="#formatting-notes" class="doc-sidebar-link">Formatting Your Notes</a>
+                    <a href="#supported-formats" class="doc-sidebar-link">Supported Formats</a>
+                    <a href="#best-practices" class="doc-sidebar-link">Best Practices</a>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2">Using NotesAnkify</h3>
+                    <a href="#processing-modes" class="doc-sidebar-link">Processing Modes</a>
+                    <a href="#deck-organization" class="doc-sidebar-link">Deck Organization</a>
+                    <a href="#advanced-features" class="doc-sidebar-link">Advanced Features</a>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-2">Troubleshooting</h3>
+                    <a href="#common-issues" class="doc-sidebar-link">Common Issues</a>
+                    <a href="#error-messages" class="doc-sidebar-link">Error Messages</a>
+                    <a href="#faq" class="doc-sidebar-link">FAQ</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:w-3/4">
+            <div class="doc-content neo-card p-8 bg-white">
+                <h1 class="text-4xl font-bold mb-8">NotesAnkify Documentation</h1>
+
+                <section id="installation">
+                    <h2>Installation</h2>
+                    <p>NotesAnkify is available for Windows, macOS, and Linux. Follow these steps to get started:</p>
+
+                    <h3>Windows</h3>
+                    <ol class="list-decimal pl-6">
+                        <li>Download the ZIP file for your system (AMD64/ARM64)</li>
+                        <li>Extract the ZIP file to your desired location</li>
+                        <li>Run NotesAnkify.exe</li>
+                        <li>On first run, Windows might show a security warning. Click "More info" and then "Run anyway"</li>
+                    </ol>
+
+                    <h3>macOS</h3>
+                    <ol class="list-decimal pl-6">
+                        <li>Download the DMG file</li>
+                        <li>Open the DMG file</li>
+                        <li>Drag NotesAnkify to your Applications folder</li>
+                        <li>Control-click the app and select "Open" on first launch</li>
+                        <li>Click "Open" when prompted about unverified developer</li>
+                    </ol>
+
+                    <h3>Linux</h3>
+                    <ol class="list-decimal pl-6">
+                        <li>Download the tar.xz file</li>
+                        <li>Extract using terminal:
+                            <code>tar xf NotesAnkify-linux-*.tar.xz</code>
+                        </li>
+                        <li>Make the file executable:
+                            <code>chmod +x NotesAnkify</code>
+                        </li>
+                        <li>Run the NotesAnkify executable</li>
+                    </ol>
+                </section>
+
+                <section id="prerequisites">
+                    <h2>Prerequisites</h2>
+                    <p>Before using NotesAnkify, ensure you have the following installed:</p>
+
+                    <h3>Required Software</h3>
+                    <ul class="list-disc pl-6">
+                        <li>
+                            <strong>Anki Desktop:</strong>
+                            <ul class="list-disc pl-6">
+                                <li>Download from <a href="https://apps.ankiweb.net/" class="text-[#FF6B6B] hover:underline">apps.ankiweb.net</a></li>
+                                <li>Version 2.1.54 or later recommended</li>
+                                <li>Must be running while using NotesAnkify</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>AnkiConnect Add-on:</strong>
+                            <ul class="list-disc pl-6">
+                                <li>Open Anki → Tools → Add-ons → Get Add-ons...</li>
+                                <li>Enter code: <code>2055492159</code></li>
+                                <li>Restart Anki after installation</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>System Requirements</h3>
+                    <ul class="list-disc pl-6">
+                        <li>Windows 10/11 (64-bit) or macOS 11+ or Linux</li>
+                        <li>4GB RAM recommended</li>
+                        <li>500MB free disk space</li>
+                        <li>Internet connection for Anki sync (optional)</li>
+                    </ul>
+                </section>
+
+                <section id="quick-start">
+                    <h2>Quick Start Guide</h2>
+                    <p>Follow these steps to convert your first PDF notes to Anki flashcards:</p>
+
+                    <h3>Basic Usage</h3>
+                    <ol class="list-decimal pl-6">
+                        <li>Start Anki Desktop application</li>
+                        <li>Launch NotesAnkify</li>
+                        <li>Click "Browse" and select your PDF directory</li>
+                        <li>Choose a root deck name (optional)</li>
+                        <li>Select your preferred processing mode</li>
+                        <li>Click "Process and Send to Anki"</li>
+                    </ol>
+
+                    <div class="bg-gray-100 p-4 rounded-lg mt-4">
+                        <p class="font-bold">💡 Pro Tip:</p>
+                        <p>Start with a small set of PDFs to familiarize yourself with the conversion process and ensure your notes are formatted correctly.</p>
+                    </div>
+                </section>
+
+                <section id="formatting-notes">
+                    <h2>Formatting Your Notes</h2>
+                    <p>NotesAnkify supports multiple ways to format your notes for flashcard conversion:</p>
+
+                    <h3>Method 1: Using Markers</h3>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <p class="font-mono">
+                            QUESTION<br/>
+                            What is the capital of France?<br/>
+                            <br/>
+                            ANSWER<br/>
+                            Paris is the capital of France.
+                        </p>
+                    </div>
+                    <ul class="list-disc pl-6">
+                        <li>Add "QUESTION" text above your question</li>
+                        <li>Add "ANSWER" text above your answer</li>
+                        <li>Case sensitive - must be uppercase</li>
+                        <li>Works with any page size</li>
+                    </ul>
+
+                    <h3>Method 2: Standard Dimensions</h3>
+                    <p>Create pages with standard flashcard dimensions:</p>
+                    <ul class="list-disc pl-6">
+                        <li>Width: 455.04 points</li>
+                        <li>Height: 587.52 points</li>
+                        <li>Question goes on top half</li>
+                        <li>Answer goes on bottom half</li>
+                        <li>No markers needed</li>
+                    </ul>
+
+                    <h3>Method 3: Process All Pages</h3>
+                    <p>For simpler processing:</p>
+                    <ul class="list-disc pl-6">
+                        <li>Any page size works</li>
+                        <li>Top half becomes question</li>
+                        <li>Bottom half becomes answer</li>
+                        <li>No special formatting needed</li>
+                    </ul>
+                </section>
+
+                <section id="supported-formats">
+                    <h2>Supported Formats</h2>
+                    <h3>Compatible Note-Taking Apps</h3>
+                    <ul class="list-disc pl-6">
+                        <li>
+                            <strong>GoodNotes:</strong>
+                            <ul class="list-disc pl-6">
+                                <li>Use standard flashcard template</li>
+                                <li>Export as PDF</li>
+                                <li>Both handwritten and typed text supported</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Notability:</strong>
+                            <ul class="list-disc pl-6">
+                                <li>Create custom flashcard templates</li>
+                                <li>Export as PDF</li>
+                                <li>Supports drawings and text</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Other Apps:</strong>
+                            <ul class="list-disc pl-6">
+                                <li>OneNote (export as PDF)</li>
+                                <li>Nebo</li>
+                                <li>Any app that exports to PDF</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Content Types</h3>
+                    <ul class="list-disc pl-6">
+                        <li>Handwritten text</li>
+                        <li>Typed text</li>
+                        <li>Images and diagrams</li>
+                        <li>Mathematical equations</li>
+                        <li>Mixed content</li>
+                    </ul>
+                </section>
+
+                <section id="processing-modes">
+                    <h2>Processing Modes</h2>
+                    <p>NotesAnkify offers four different processing modes to handle various note formats:</p>
+
+                    <h3>1. Markers and Dimensions Mode</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">Most Strict</p>
+                        <ul class="list-disc pl-6">
+                            <li>Requires QUESTION/ANSWER markers</li>
+                            <li>Must match standard dimensions</li>
+                            <li>Best for consistent flashcard creation</li>
+                        </ul>
+                    </div>
+
+                    <h3>2. Markers Only Mode</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">Flexible Dimensions</p>
+                        <ul class="list-disc pl-6">
+                            <li>Only checks for QUESTION/ANSWER markers</li>
+                            <li>Any page size accepted</li>
+                            <li>Good for mixed-size documents</li>
+                        </ul>
+                    </div>
+
+                    <h3>3. Dimensions Only Mode</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">Standard Size</p>
+                        <ul class="list-disc pl-6">
+                            <li>Only checks page dimensions</li>
+                            <li>Splits page into top/bottom</li>
+                            <li>No markers needed</li>
+                        </ul>
+                    </div>
+
+                    <h3>4. Process All Pages Mode</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">Most Flexible</p>
+                        <ul class="list-disc pl-6">
+                            <li>Processes every page</li>
+                            <li>Splits each page in half</li>
+                            <li>No formatting requirements</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="deck-organization">
+                    <h2>Deck Organization</h2>
+                    <p>NotesAnkify organizes your flashcards into Anki decks based on your PDF file structure:</p>
+
+                    <h3>Deck Naming</h3>
+                    <ul class="list-disc pl-6">
+                        <li>
+                            <strong>Root Deck (Optional):</strong>
+                            <ul class="list-disc pl-6">
+                                <li>Specified in the app interface</li>
+                                <li>All cards are placed under this deck</li>
+                                <li>Example: "University" or "Study"</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Subdeck Structure:</strong>
+                            <ul class="list-disc pl-6">
+                                <li>Follows your folder structure</li>
+                                <li>Uses "::" as separator</li>
+                                <li>Example: "University::Biology::Chapter1"</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="bg-gray-100 p-4 rounded-lg mt-4">
+                        <p class="font-bold">Example File Structure:</p>
+                        <pre class="font-mono text-sm">
+PDFs/
+  └── Biology/
+      ├── Chapter1.pdf
+      └── Chapter2.pdf
+  └── Chemistry/
+      └── Notes.pdf</pre>
+                        <p class="mt-2">Results in decks:</p>
+                        <ul class="list-disc pl-6">
+                            <li>Biology::Chapter1</li>
+                            <li>Biology::Chapter2</li>
+                            <li>Chemistry::Notes</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="advanced-features">
+                    <h2>Advanced Features</h2>
+
+                    <h3>Output Directory</h3>
+                    <p>Specify a custom output directory to:</p>
+                    <ul class="list-disc pl-6">
+                        <li>Save processed flashcard images</li>
+                        <li>Review conversion results</li>
+                        <li>Debug processing issues</li>
+                    </ul>
+
+                    <h3>Duplicate Detection</h3>
+                    <p>NotesAnkify prevents duplicate flashcards by:</p>
+                    <ul class="list-disc pl-6">
+                        <li>Generating unique content hashes</li>
+                        <li>Checking existing cards</li>
+                        <li>Skipping identical content</li>
+                    </ul>
+
+                    <h3>Processing Report</h3>
+                    <p>After processing, you'll receive a detailed report showing:</p>
+                    <ul class="list-disc pl-6">
+                        <li>Total PDFs processed</li>
+                        <li>Number of flashcards created</li>
+                        <li>Skipped (duplicate) cards</li>
+                        <li>Processing time</li>
+                        <li>Log file location</li>
+                    </ul>
+                </section>
+
+                <section id="common-issues">
+                    <h2>Common Issues</h2>
+
+                    <h3>Connection Issues</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">Error: "Could not connect to Anki"</p>
+                        <ol class="list-decimal pl-6">
+                            <li>Ensure Anki is running</li>
+                            <li>Check if AnkiConnect is installed</li>
+                            <li>Restart Anki and try again</li>
+                        </ol>
+                    </div>
+
+                    <h3>Processing Issues</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">No flashcards created</p>
+                        <ul class="list-disc pl-6">
+                            <li>Verify PDF formatting</li>
+                            <li>Check chosen processing mode</li>
+                            <li>Review processing report</li>
+                        </ul>
+                    </div>
+
+                    <h3>Permission Issues</h3>
+                    <div class="neo-card p-4 mb-4">
+                        <p class="font-bold">Access Denied Errors</p>
+                        <ul class="list-disc pl-6">
+                            <li>Run as administrator (Windows)</li>
+                            <li>Check folder permissions</li>
+                            <li>Verify write access to output directory</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="error-messages">
+                    <h2>Error Messages</h2>
+                    <p>Common error messages and their solutions:</p>
+
+                    <div class="space-y-4">
+                        <div class="neo-card p-4">
+                            <p class="font-bold">"Failed to extract image from PDF"</p>
+                            <ul class="list-disc pl-6">
+                                <li>Ensure PDF is not corrupted</li>
+                                <li>Check if PDF is password protected</li>
+                                <li>Try re-exporting the PDF</li>
+                            </ul>
+                        </div>
+
+                        <div class="neo-card p-4">
+                            <p class="font-bold">"Failed to create deck"</p>
+                            <ul class="list-disc pl-6">
+                                <li>Check Anki is running</li>
+                                <li>Verify AnkiConnect installation</li>
+                                <li>Try a different deck name</li>
+                            </ul>
+                        </div>
+
+                        <div class="neo-card p-4">
+                            <p class="font-bold">"No PDF files found"</p>
+                            <ul class="list-disc pl-6">
+                                <li>Check selected directory</li>
+                                <li>Ensure files have .pdf extension</li>
+                                <li>Verify file permissions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="faq">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div class="space-y-6">
+                        <div class="neo-card p-4">
+                            <p class="font-bold">Q: Can I modify cards after they're created?</p>
+                            <p>A: Yes, you can edit any flashcard directly in Anki after creation.</p>
+                        </div>
+
+                        <div class="neo-card p-4">
+                            <p class="font-bold">Q: Will my cards sync to AnkiWeb?</p>
+                            <p>A: Yes, cards will sync normally through Anki's built-in synchronization.</p>
+                        </div>
+
+                        <div class="neo-card p-4">
+                            <p class="font-bold">Q: Can I use custom card templates?</p>
+                            <p>A: NotesAnkify uses its own template optimized for PDF content. You can modify cards after creation.</p>
+                        </div>
+
+                        <div class="neo-card p-4">
+                            <p class="font-bold">Q: Does it work with scanned PDFs?</p>
+                            <p>A: Yes, NotesAnkify works with any PDF, including scanned documents.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-white border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About -->
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="text-lg font-bold mb-4">About NotesAnkify</h3>
+                <p class="text-gray-600">
+                    An open-source tool to automatically convert PDF notes into Anki flashcards.
+                    Created to make studying more efficient and effective.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="/#features" class="text-gray-600 hover:text-[#FF6B6B]">Features</a></li>
+                    <li><a href="/#getting-started" class="text-gray-600 hover:text-[#FF6B6B]">Getting Started</a></li>
+                    <li><a href="/docs" class="text-gray-600 hover:text-[#FF6B6B]">Documentation</a></li>
+                    <li><a href="/#faq" class="text-gray-600 hover:text-[#FF6B6B]">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://github.com/kpauljoseph/notesankify" class="text-gray-600 hover:text-[#FF6B6B]">GitHub</a></li>
+                    <li><a href="/support" class="text-gray-600 hover:text-[#FF6B6B]">Support</a></li>
+                    <li><a href="https://github.com/kpauljoseph/notesankify/issues" class="text-gray-600 hover:text-[#FF6B6B]">Report Issues</a></li>
+                    <li><a href="/privacy" class="text-gray-600 hover:text-[#FF6B6B]">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-gray-200">
+            <div class="text-center">
+                <p class="text-gray-600">
+                    &copy; 2024 NotesAnkify. Open source under MIT License.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Documentation Navigation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Highlight current section in sidebar
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.doc-sidebar-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('.doc-sidebar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

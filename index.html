@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NotesAnkify - Convert PDF Notes to Anki Flashcards</title>
-    <meta name="description" content="Convert your PDF notes into Anki flashcards automatically. Supports GoodNotes, and other PDF note-taking apps.">
+
+    <!-- Primary Meta Tags -->
+    <title>NotesAnkify - Convert PDF Notes to Anki Flashcards Automatically</title>
+    <meta name="title" content="NotesAnkify - Convert PDF Notes to Anki Flashcards Automatically">
+    <meta name="description" content="Transform your PDF notes into Anki flashcards effortlessly. Perfect for students using GoodNotes, Notability, or any PDF note-taking app. Free and open-source.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notesankify.com/">
+    <meta property="og:title" content="NotesAnkify - PDF Notes to Anki Flashcards Converter">
+    <meta property="og:description" content="Transform your PDF notes into Anki flashcards effortlessly. Perfect for students using GoodNotes, Notability, or any PDF note-taking app.">
+    <meta property="og:image" content="https://notesankify.com/assets/images/social-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://notesankify.com/">
+    <meta property="twitter:title" content="NotesAnkify - PDF Notes to Anki Flashcards Converter">
+    <meta property="twitter:description" content="Transform your PDF notes into Anki flashcards effortlessly. Perfect for students using GoodNotes, Notability, or any PDF note-taking app.">
+    <meta property="twitter:image" content="https://notesankify.com/assets/images/social-preview.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/images/NotesAnkify-icon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Google Fonts - Space Grotesk for Neo-Brutalist look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind and Custom CSS -->
+    <!-- Tailwind CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
     <style>
         :root {
             --primary: rgba(255, 82, 82, 0.8);
@@ -76,6 +96,35 @@
             transform: translate(-4px, -4px);
             box-shadow: 12px 12px 0 var(--secondary);
         }
+
+        .steps-container {
+            counter-reset: step;
+        }
+
+        .step-card {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .step-card::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary);
+            color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
     </style>
 
     <!-- Analytics -->
@@ -87,218 +136,508 @@
         gtag('config', 'G-XJQSDFVMHB');
     </script>
 </head>
+
 <body class="bg-white">
-    <!-- Header -->
-    <header class="bg-white border-b-4 border-gray-900 sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <img src="/assets/images/NotesAnkify-icon.svg" alt="NotesAnkify" class="h-10 w-auto">
-                    <h1 class="ml-2 text-2xl font-bold text-gray-900">NotesAnkify</h1>
-                </div>
-                <div class="flex items-center space-x-8">
-                    <a href="#features" class="text-gray-900 hover:text-primary font-bold">Features</a>
-                    <a href="#download" class="text-gray-900 hover:text-primary font-bold">Download</a>
-                    <a href="https://github.com/kpauljoseph/notesankify"
-                       class="neo-button px-4 py-2 text-gray-900 font-bold"
-                       target="_blank">GitHub</a>
+<!-- Header -->
+<header class="bg-white border-b-4 border-gray-900 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <img src="/assets/images/NotesAnkify-icon.svg" alt="NotesAnkify" class="h-10 w-auto">
+                <h1 class="ml-2 text-2xl font-bold text-gray-900">NotesAnkify</h1>
+            </div>
+            <div class="flex items-center space-x-8">
+                <a href="#features" class="text-gray-900 hover:text-primary font-bold">Features</a>
+                <a href="#getting-started" class="text-gray-900 hover:text-primary font-bold">Getting Started</a>
+                <a href="#download" class="text-gray-900 hover:text-primary font-bold">Download</a>
+                <a href="/docs" class="text-gray-900 hover:text-primary font-bold">Documentation</a>
+                <a href="/support" class="text-gray-900 hover:text-primary font-bold">Support</a>
+                <a href="https://github.com/kpauljoseph/notesankify"
+                   class="neo-button px-4 py-2 text-gray-900 font-bold"
+                   target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="py-20 px-4 sm:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[#FF6B6B] border-b-4 border-gray-900"></div>
+    <div class="relative max-w-7xl mx-auto">
+        <!-- Decorative elements -->
+        <div class="absolute top-10 right-10 w-20 h-20 bg-white border-4 border-gray-900 transform rotate-12"></div>
+        <div class="absolute bottom-10 left-10 w-16 h-16 bg-[#4ECDC4] border-4 border-gray-900 transform -rotate-12"></div>
+
+        <!-- Content -->
+        <div class="relative text-center">
+            <div class="bg-white neo-card inline-block px-8 py-6 mb-8 transform -rotate-2">
+                <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+                    PDF Notes to<br/>
+                    <span class="text-[#FF6B6B]">Anki Flashcards</span>
+                </h1>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <p class="mt-3 text-xl bg-white neo-card px-6 py-4 inline-block transform rotate-1">
+                    Turn your PDF notes into Anki flashcards automatically.<br/>
+                    Works with GoodNotes, Notability, and other PDF note-taking apps.
+                </p>
+
+                <div class="mt-10 flex justify-center space-x-6">
+                    <a href="#download"
+                       class="download-button px-8 py-4 text-xl font-bold inline-block transform hover:-rotate-2">
+                        Download Now →
+                    </a>
+                    <a href="#getting-started"
+                       class="neo-button px-8 py-4 text-xl font-bold inline-block bg-white transform hover:rotate-2">
+                        Get Started
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
+</div>
 
-    <!-- Hero Section -->
-    <div class="py-20 px-4 sm:py-28 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[#FF6B6B] border-b-4 border-gray-900"></div>
-        <div class="relative max-w-7xl mx-auto">
-            <!-- Decorative elements -->
-            <div class="absolute top-10 right-10 w-20 h-20 bg-white border-4 border-gray-900 transform rotate-12"></div>
-            <div class="absolute bottom-10 left-10 w-16 h-16 bg-[#4ECDC4] border-4 border-gray-900 transform -rotate-12"></div>
+<!-- Features Section -->
+<div id="features" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+            <h2 class="inline-block neo-card px-8 py-4 text-4xl font-bold transform -rotate-1">
+                Why NotesAnkify?
+            </h2>
+        </div>
 
-            <!-- Content -->
-            <div class="relative text-center">
-                <div class="bg-white neo-card inline-block px-8 py-6 mb-8 transform -rotate-2">
-                    <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
-                        PDF Notes to<br/>
-                        <span class="text-[#FF6B6B]">Anki Flashcards</span>
-                    </h1>
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Feature 1: Automatic Processing -->
+            <div class="feature-card p-6 bg-white">
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-[#FF6B6B] border-4 border-gray-900 flex items-center justify-center transform -rotate-6">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/>
+                        </svg>
+                    </div>
                 </div>
+                <h3 class="text-2xl font-bold mb-4">Automatic Processing</h3>
+                <p class="text-lg">
+                    Just select your PDF files and NotesAnkify automatically converts them into Anki flashcards.
+                    No manual copying required!
+                </p>
+            </div>
 
-                <div class="max-w-2xl mx-auto">
-                    <p class="mt-3 text-xl bg-white neo-card px-6 py-4 inline-block transform rotate-1">
-                        Turn your PDF notes into Anki flashcards automatically.<br/>
-                        Works with GoodNotes and other PDF note-taking apps.
-                    </p>
+            <!-- Feature 2: Smart Detection -->
+            <div class="feature-card p-6 bg-white">
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-[#4ECDC4] border-4 border-gray-900 flex items-center justify-center transform rotate-6">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Smart Detection</h3>
+                <p class="text-lg">
+                    Multiple processing modes to handle different note formats. Works with or without
+                    QUESTION/ANSWER markers.
+                </p>
+            </div>
 
-                    <div class="mt-10 flex justify-center">
-                        <a href="#download"
-                           class="download-button px-8 py-4 text-xl font-bold inline-block transform hover:-rotate-2">
-                            Download Now →
+            <!-- Feature 3: Cross Platform -->
+            <div class="feature-card p-6 bg-white">
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-[#FF6B6B] border-4 border-gray-900 flex items-center justify-center transform -rotate-3">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Cross Platform</h3>
+                <p class="text-lg">
+                    Available for Windows, macOS, and Linux. Works seamlessly with Anki on any platform.
+                    Free and open-source!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Getting Started Section -->
+<div id="getting-started" class="py-24 bg-gray-50 relative border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+            <h2 class="inline-block neo-card px-8 py-4 text-4xl font-bold transform rotate-1">
+                Getting Started
+            </h2>
+        </div>
+
+        <div class="steps-container space-y-8 max-w-4xl mx-auto">
+            <!-- Step 1: Download and Install -->
+            <div class="neo-card p-8 bg-white step-card">
+                <h3 class="text-2xl font-bold mb-4">Download and Install Prerequisites</h3>
+                <div class="space-y-4">
+                    <p class="text-lg">First, ensure you have the required software installed:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>
+                            <a href="https://apps.ankiweb.net/" target="_blank" rel="noopener"
+                               class="text-[#FF6B6B] hover:underline font-bold">
+                                Download Anki
+                            </a>
+                            - Install the Anki desktop application
+                        </li>
+                        <li>
+                            Install the AnkiConnect add-on:
+                            <ol class="list-decimal pl-6 mt-2 space-y-2">
+                                <li>Open Anki</li>
+                                <li>Go to Tools → Add-ons → Get Add-ons...</li>
+                                <li>Enter code: <code class="bg-gray-100 px-2 py-1 rounded">2055492159</code></li>
+                                <li>Restart Anki after installation</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#download" class="text-[#FF6B6B] hover:underline font-bold">
+                                Download NotesAnkify
+                            </a>
+                            for your operating system
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 2: Prepare Your Notes -->
+            <div class="neo-card p-8 bg-white step-card">
+                <h3 class="text-2xl font-bold mb-4">Prepare Your Notes</h3>
+                <div class="space-y-4">
+                    <p class="text-lg">NotesAnkify supports multiple ways to create flashcards:</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                        <!-- Method 1: Using Markers -->
+                        <div class="border-4 border-gray-900 p-4">
+                            <h4 class="font-bold mb-2">Method 1: Using Markers</h4>
+                            <p>Add "QUESTION" and "ANSWER" text markers to your notes:</p>
+                            <div class="bg-gray-100 p-4 mt-2 text-sm font-mono">
+                                QUESTION<br/>
+                                What is photosynthesis?<br/>
+                                <br/>
+                                ANSWER<br/>
+                                Process where plants convert...<br/>
+                            </div>
+                        </div>
+
+                        <!-- Method 2: Standard Size -->
+                        <div class="border-4 border-gray-900 p-4">
+                            <h4 class="font-bold mb-2">Method 2: Standard Size</h4>
+                            <p>Use standard flashcard dimensions:</p>
+                            <ul class="list-disc pl-4 mt-2 text-sm">
+                                <li>Width: 455.04 points</li>
+                                <li>Height: 587.52 points</li>
+                                <li>Question on top half</li>
+                                <li>Answer on bottom half</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Process Your Notes -->
+            <div class="neo-card p-8 bg-white step-card">
+                <h3 class="text-2xl font-bold mb-4">Process Your Notes</h3>
+                <div class="space-y-4">
+                    <p class="text-lg">Converting your notes is simple:</p>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>Start Anki (must be running for NotesAnkify to work)</li>
+                        <li>Launch NotesAnkify</li>
+                        <li>Click "Browse" and select your PDF directory</li>
+                        <li>Choose your preferred processing mode:
+                            <ul class="list-disc pl-6 mt-2">
+                                <li>Check both markers and dimensions</li>
+                                <li>Only check for markers</li>
+                                <li>Only check dimensions</li>
+                                <li>Process all pages</li>
+                            </ul>
+                        </li>
+                        <li>Click "Process and Send to Anki"</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Step 4: Study -->
+            <div class="neo-card p-8 bg-white step-card">
+                <h3 class="text-2xl font-bold mb-4">Start Studying!</h3>
+                <div class="space-y-4">
+                    <p class="text-lg">Your flashcards are now ready:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Open Anki to see your new flashcards</li>
+                        <li>Cards are organized in decks based on PDF file structure</li>
+                        <li>Begin studying with Anki's spaced repetition system</li>
+                    </ul>
+                    <div class="mt-6">
+                        <a href="/docs" class="text-[#FF6B6B] hover:underline font-bold">
+                            → View detailed documentation for more tips and features
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Features Section -->
-    <div id="features" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Title -->
-            <div class="text-center mb-20">
-                <h2 class="inline-block neo-card px-8 py-4 text-4xl font-bold transform -rotate-1">
-                    Why NotesAnkify?
-                </h2>
+<!-- Download Section -->
+<div id="download" class="py-24 bg-white border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Title -->
+        <div class="text-center mb-20">
+            <h2 class="inline-block neo-card px-8 py-4 text-4xl font-bold transform rotate-1">
+                Download NotesAnkify
+            </h2>
+        </div>
+
+        <!-- Version Info -->
+        <div class="text-center mb-12">
+            <div class="inline-block neo-card px-6 py-3">
+                <p class="text-lg">
+                    Latest Version: <span class="font-bold" id="latest-version">v0.1.1</span>
+                    • Released: <span class="font-bold" id="release-date">January 19, 2024</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Download Cards -->
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Windows -->
+            <div class="neo-card p-8 bg-white relative">
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-20 h-20 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path fill="currentColor" fill-rule="evenodd" d="M3.005 12 3 6.408l6.8-.923v6.517H3.005ZM11 5.32 19.997 4v8H11V5.32ZM20.067 13l-.069 8-9.065-1.275L11 13h9.067ZM9.8 19.58l-6.795-.931V13H9.8v6.58Z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-center mb-6">Windows</h3>
+                <div class="space-y-4">
+                    <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows/amd64">
+                        Download for Intel/AMD
+                    </a>
+                    <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows/arm64">
+                        Download for ARM
+                    </a>
+                    <p class="text-sm text-center mt-4">
+                        Windows 10/11 • 64-bit
+                    </p>
+                </div>
             </div>
 
-            <!-- Features Grid -->
-            <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                <!-- Feature 1 -->
-                <div class="feature-card p-6 bg-white">
-                    <div class="mb-6">
-                        <div class="w-16 h-16 bg-[#FF6B6B] border-4 border-gray-900 flex items-center justify-center transform -rotate-6">
-                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Automatic Processing</h3>
-                    <p class="text-lg">
-                        Just select your PDF files and NotesAnkify automatically converts them into Anki flashcards.
+            <!-- macOS -->
+            <div class="neo-card p-8 bg-white">
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="w-20 h-20 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.537 12.625a4.421 4.421 0 0 0 2.684 4.047 10.96 10.96 0 0 1-1.384 2.845c-.834 1.218-1.7 2.432-3.062 2.457-1.34.025-1.77-.794-3.3-.794-1.531 0-2.01.769-3.275.82-1.316.049-2.317-1.318-3.158-2.532-1.72-2.484-3.032-7.017-1.27-10.077A4.9 4.9 0 0 1 8.91 6.884c1.292-.025 2.51.869 3.3.869.789 0 2.27-1.075 3.828-.917a4.67 4.67 0 0 1 3.66 1.984 4.524 4.524 0 0 0-2.16 3.805m-2.52-7.432A4.4 4.4 0 0 0 16.06 2a4.482 4.482 0 0 0-2.945 1.516 4.185 4.185 0 0 0-1.061 3.093 3.708 3.708 0 0 0 2.967-1.416Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-center mb-6">macOS</h3>
+                <div class="space-y-4">
+                    <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="darwin/all">
+                        Universal Download
+                    </a>
+                    <p class="text-sm text-center mt-4">
+                        macOS 11 or later • Intel & Apple Silicon
                     </p>
                 </div>
+            </div>
 
-                <!-- Feature 2 -->
-                <div class="feature-card p-6 bg-white">
-                    <div class="mb-6">
-                        <div class="w-16 h-16 bg-[#4ECDC4] border-4 border-gray-900 flex items-center justify-center transform rotate-6">
-                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Smart Detection</h3>
-                    <p class="text-lg">
-                        Detects question and answer markers automatically for accurate flashcard creation.
-                    </p>
+            <!-- Linux -->
+            <div class="neo-card p-8 bg-white">
+                <div class="flex items-center justify-center mb-6">
+                    <svg class="h-20 w-20" viewBox="0 0 455 455">
+                        <path fill="currentColor" d="M352.271,348.95c-13.2,7.348-36.707,19.102-45.519,28.435c-8.794,9.265-22.515,8.794-28.888,5.314c-6.373-3.413-9.787-11.233-9.787-11.233s-17.605-4.389-36.203-3.868c-18.58,0.454-36.253,4.406-36.253,4.406s-4.86,12.678-20.565,10.695c-15.621-1.9-34.286-12.662-50.9-14.646c-16.68-1.967-33.764-5.381-30.351-16.613c3.414-11.233,6.372-16.159,3.414-24.954c-2.943-8.811-2.943-16.681,9.265-19.186c12.292-2.371,19.119-5.852,22.533-13.133c3.48-7.365,7.886-8.879,7.886-8.879s-4.405-10.24,1.9-21.473c6.44-11.3,12.814-38.691,21.608-51.959c8.811-13.2,22.078-28.956,23.978-33.294c1.9-4.271,2.438-16.159,1.446-32.773c-0.992-16.698-7.298-51.891,13.268-66.084c20.565-14.191,58.718-16.159,73.432,17.135c14.713,33.244,0.992,59.257,17.151,81.789c16.159,22.465,37.178,52.346,43.551,70.926c6.373,18.665-0.471,41.197-0.471,41.197s7.819,6.827,7.365,17.067c-0.521,10.325,6.306,15.706,14.646,19.119C363.117,330.353,365.555,341.585,352.271,348.95z"/>
+                    </svg>
                 </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card p-6 bg-white">
-                    <div class="mb-6">
-                        <div class="w-16 h-16 bg-[#FF6B6B] border-4 border-gray-900 flex items-center justify-center transform -rotate-3">
-                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Cross Platform</h3>
-                    <p class="text-lg">
-                        Available for Windows, macOS, and Linux. Works seamlessly with Anki on any platform.
+                <h3 class="text-2xl font-bold text-center mb-6">Linux</h3>
+                <div class="space-y-4">
+                    <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="linux/amd64">
+                        Download for Linux
+                    </a>
+                    <p class="text-sm text-center mt-4">
+                        Most Linux distributions • 64-bit
                     </p>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Installation Instructions -->
+        <div class="mt-16 max-w-4xl mx-auto">
+            <div class="neo-card p-8 bg-white">
+                <h3 class="text-2xl font-bold mb-6">Installation Instructions</h3>
 
-    <!-- Download Section -->
-    <div id="download" class="py-24 bg-gray-50 border-t-4 border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Title -->
-            <div class="text-center mb-20">
-                <h2 class="inline-block neo-card px-8 py-4 text-4xl font-bold transform rotate-1">
-                    Download NotesAnkify
-                </h2>
-            </div>
-
-            <!-- Download Cards -->
-            <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                <!-- Windows -->
-                <div class="neo-card p-8 bg-white relative">
-                    <div class="flex items-center justify-center mb-6">
-                        <svg class="w-20 h-20 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path fill="currentColor" fill-rule="evenodd" d="M3.005 12 3 6.408l6.8-.923v6.517H3.005ZM11 5.32 19.997 4v8H11V5.32ZM20.067 13l-.069 8-9.065-1.275L11 13h9.067ZM9.8 19.58l-6.795-.931V13H9.8v6.58Z" clip-rule="evenodd"/>
-                        </svg>
-
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-6">Windows</h3>
-                    <div class="space-y-4">
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows/amd64">
-                            Download for Intel/AMD
-                        </a>
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="windows/arm64">
-                            Download for ARM
-                        </a>
-                    </div>
+                <!-- Windows Instructions -->
+                <div class="mb-8">
+                    <h4 class="font-bold text-lg mb-2">Windows</h4>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>Download the ZIP file for your system (AMD64/ARM64)</li>
+                        <li>Extract the ZIP file to your desired location</li>
+                        <li>Run NotesAnkify.exe</li>
+                    </ol>
                 </div>
 
-                <!-- macOS -->
-                <div class="neo-card p-8 bg-white">
-                    <div class="flex items-center justify-center mb-6">
-                        <svg class="w-20 h-20 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.537 12.625a4.421 4.421 0 0 0 2.684 4.047 10.96 10.96 0 0 1-1.384 2.845c-.834 1.218-1.7 2.432-3.062 2.457-1.34.025-1.77-.794-3.3-.794-1.531 0-2.01.769-3.275.82-1.316.049-2.317-1.318-3.158-2.532-1.72-2.484-3.032-7.017-1.27-10.077A4.9 4.9 0 0 1 8.91 6.884c1.292-.025 2.51.869 3.3.869.789 0 2.27-1.075 3.828-.917a4.67 4.67 0 0 1 3.66 1.984 4.524 4.524 0 0 0-2.16 3.805m-2.52-7.432A4.4 4.4 0 0 0 16.06 2a4.482 4.482 0 0 0-2.945 1.516 4.185 4.185 0 0 0-1.061 3.093 3.708 3.708 0 0 0 2.967-1.416Z"/>
-                        </svg>
-
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-6">macOS</h3>
-                    <div class="space-y-4">
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="darwin/all">
-                            Download for macOS
-                        </a>
-                    </div>
+                <!-- macOS Instructions -->
+                <div class="mb-8">
+                    <h4 class="font-bold text-lg mb-2">macOS</h4>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>Download the DMG file</li>
+                        <li>Open the DMG file</li>
+                        <li>Drag NotesAnkify to your Applications folder</li>
+                        <li>Control-click the app and select "Open" on first launch</li>
+                    </ol>
                 </div>
 
-                <!-- Linux -->
-                <div class="neo-card p-8 bg-white">
-                    <div class="flex items-center justify-center mb-6">
-                        <svg class="h-20 w-20" viewBox="0 0 455 455">
-                            <path fill="currentColor" d="M352.271,348.95c-13.2,7.348-36.707,19.102-45.519,28.435c-8.794,9.265-22.515,8.794-28.888,5.314c-6.373-3.413-9.787-11.233-9.787-11.233s-17.605-4.389-36.203-3.868c-18.58,0.454-36.253,4.406-36.253,4.406s-4.86,12.678-20.565,10.695c-15.621-1.9-34.286-12.662-50.9-14.646c-16.68-1.967-33.764-5.381-30.351-16.613c3.414-11.233,6.372-16.159,3.414-24.954c-2.943-8.811-2.943-16.681,9.265-19.186c12.292-2.371,19.119-5.852,22.533-13.133c3.48-7.365,7.886-8.879,7.886-8.879s-4.405-10.24,1.9-21.473c6.44-11.3,12.814-38.691,21.608-51.959c8.811-13.2,22.078-28.956,23.978-33.294c1.9-4.271,2.438-16.159,1.446-32.773c-0.992-16.698-7.298-51.891,13.268-66.084c20.565-14.191,58.718-16.159,73.432,17.135c14.713,33.244,0.992,59.257,17.151,81.789c16.159,22.465,37.178,52.346,43.551,70.926c6.373,18.665-0.471,41.197-0.471,41.197s7.819,6.827,7.365,17.067c-0.521,10.325,6.306,15.706,14.646,19.119C363.117,330.353,365.555,341.585,352.271,348.95z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-6">Linux</h3>
-                    <div class="space-y-4">
-                        <a href="#" class="download-button w-full block text-center py-3 font-bold" data-platform="linux/amd64">
-                            Download for Linux
-                        </a>
-                    </div>
+                <!-- Linux Instructions -->
+                <div>
+                    <h4 class="font-bold text-lg mb-2">Linux</h4>
+                    <ol class="list-decimal pl-6 space-y-2">
+                        <li>Download the tar.xz file</li>
+                        <li>Extract using: <code class="bg-gray-100 px-2 py-1 rounded">tar xf NotesAnkify-linux-*.tar.xz</code></li>
+                        <li>Run the NotesAnkify executable</li>
+                    </ol>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t-4 border-gray-900">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<!-- FAQ Section -->
+<div id="faq" class="py-24 bg-gray-50 border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+            <h2 class="inline-block neo-card px-8 py-4 text-4xl font-bold transform -rotate-1">
+                Frequently Asked Questions
+            </h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+            <!-- FAQ Item 1 -->
+            <div class="neo-card p-8 bg-white">
+                <h3 class="text-xl font-bold mb-4">How do I format my PDF notes for NotesAnkify?</h3>
+                <p class="text-lg">
+                    You have three options:
+                <ul class="list-disc pl-6 mt-2 space-y-2">
+                    <li>Add "QUESTION" and "ANSWER" markers in your notes</li>
+                    <li>Use standard flashcard dimensions (455.04 × 587.52 points)</li>
+                    <li>Split any page into top (question) and bottom (answer) halves</li>
+                </ul>
+                </p>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="neo-card p-8 bg-white">
+                <h3 class="text-xl font-bold mb-4">Does it work with handwritten notes?</h3>
+                <p class="text-lg">
+                    Yes! NotesAnkify works with any PDF content, including handwritten notes, typed text, images, or diagrams.
+                    Just ensure your notes follow one of the supported formats.
+                </p>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="neo-card p-8 bg-white">
+                <h3 class="text-xl font-bold mb-4">Why do I need to install AnkiConnect?</h3>
+                <p class="text-lg">
+                    AnkiConnect is required to allow NotesAnkify to communicate with Anki and automatically create flashcards.
+                    It's a secure add-on that acts as a bridge between NotesAnkify and Anki.
+                </p>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="neo-card p-8 bg-white">
+                <h3 class="text-xl font-bold mb-4">Will my existing Anki flashcards be affected?</h3>
+                <p class="text-lg">
+                    No. NotesAnkify safely adds new flashcards to your specified decks without modifying existing ones.
+                    It also prevents duplicates to maintain a clean study collection.
+                </p>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="neo-card p-8 bg-white">
+                <h3 class="text-xl font-bold mb-4">What note-taking apps are supported?</h3>
+                <p class="text-lg">
+                    NotesAnkify works with any app that can export to PDF, including:
+                <ul class="list-disc pl-6 mt-2 space-y-2">
+                    <li>GoodNotes</li>
+                    <li>Notability</li>
+                    <li>OneNote (exported as PDF)</li>
+                    <li>Any other app that creates PDF files</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-white border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About -->
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="text-lg font-bold mb-4">About NotesAnkify</h3>
+                <p class="text-gray-600">
+                    An open-source tool to automatically convert PDF notes into Anki flashcards.
+                    Created to make studying more efficient and effective.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="text-gray-600 hover:text-[#FF6B6B]">Features</a></li>
+                    <li><a href="#getting-started" class="text-gray-600 hover:text-[#FF6B6B]">Getting Started</a></li>
+                    <li><a href="/docs" class="text-gray-600 hover:text-[#FF6B6B]">Documentation</a></li>
+                    <li><a href="#faq" class="text-gray-600 hover:text-[#FF6B6B]">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://github.com/kpauljoseph/notesankify" class="text-gray-600 hover:text-[#FF6B6B]">GitHub</a></li>
+                    <li><a href="/support" class="text-gray-600 hover:text-[#FF6B6B]">Support</a></li>
+                    <li><a href="https://github.com/kpauljoseph/notesankify/issues" class="text-gray-600 hover:text-[#FF6B6B]">Report Issues</a></li>
+                    <li><a href="/privacy" class="text-gray-600 hover:text-[#FF6B6B]">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-gray-200">
             <div class="text-center">
-                <div class="inline-block neo-card px-6 py-3 transform -rotate-1">
-                    <p class="text-base text-gray-900 font-bold">
-                        &copy; 2024 NotesAnkify. All rights reserved.
-                    </p>
-                </div>
+                <p class="text-gray-600">
+                    &copy; 2024 NotesAnkify. Open source under MIT License.
+                </p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Version Check Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch('/version.json');
-                const versionInfo = await response.json();
+<!-- Version Check Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('/version.json');
+            const versionInfo = await response.json();
 
-                // Update all download links
-                document.querySelectorAll('[data-platform]').forEach(link => {
-                    const platform = link.getAttribute('data-platform');
-                    if (versionInfo.platform_downloads[platform]) {
-                        link.href = versionInfo.platform_downloads[platform];
-                    }
-                });
-            } catch (error) {
-                console.error('Failed to load version info:', error);
+            // Update version display
+            document.getElementById('latest-version').textContent = versionInfo.latest_version;
+
+            // Update all download links
+            document.querySelectorAll('[data-platform]').forEach(link => {
+                const platform = link.getAttribute('data-platform');
+                if (versionInfo.platform_downloads[platform]) {
+                    link.href = versionInfo.platform_downloads[platform];
+                }
+            });
+
+            // Check for updates
+            if (versionInfo.force_update) {
+                alert('A required update is available. Please download the latest version to continue using NotesAnkify.');
             }
-        });
-
-    </script>
+        } catch (error) {
+            console.error('Failed to load version info:', error);
+        }
+    });
+</script>
 </body>
 </html>

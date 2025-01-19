@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /docs/
+Allow: /support/
+Allow: /privacy/
+Allow: /assets/images/
+
+# Don't index version info
+Disallow: /version.json
+
+Sitemap: https://notesankify.com/sitemap.xml
