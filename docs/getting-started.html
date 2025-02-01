@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Getting Started - NotesAnkify</title>
+    <meta name="title" content="Getting Started - NotesAnkify">
+    <meta name="description" content="NotesAnkify documentation - Getting Started">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notesankify.com/getting-started.html">
+    <meta property="og:title" content="Getting Started - NotesAnkify">
+    <meta property="og:description" content="NotesAnkify documentation - Getting Started">
+    <meta property="og:image" content="https://notesankify.com/assets/images/social-preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://notesankify.com/getting-started.html">
+    <meta property="twitter:title" content="Getting Started - NotesAnkify">
+    <meta property="twitter:description" content="NotesAnkify documentation - Getting Started">
+    <meta property="twitter:image" content="https://notesankify.com/assets/images/social-preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/NotesAnkify-icon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: rgba(255, 82, 82, 0.8);
+            --primary-dark: #FF5252;
+            --secondary: #2D2D2D;
+            --accent: #4ECDC4;
+        }
+    
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    
+        .neo-gradient {
+            background: var(--primary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            border: 4px solid var(--secondary);
+        }
+    
+        .neo-button {
+            background: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.2s ease;
+            transform: translate(-4px, -4px);
+        }
+    
+        .neo-button:hover {
+            transform: translate(0, 0);
+            box-shadow: 4px 4px 0 var(--secondary);
+        }
+    
+        .neo-card {
+            background: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+        }
+    
+        .download-button {
+            background: var(--primary);
+            color: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.2s ease;
+            transform: translate(-4px, -4px);
+        }
+    
+        .download-button:hover {
+            transform: translate(0, 0);
+            box-shadow: 4px 4px 0 var(--secondary);
+            background: var(--primary-dark);
+        }
+    
+        .feature-card {
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.3s ease;
+        }
+    
+        .feature-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--secondary);
+        }
+    
+        .steps-container {
+            counter-reset: step;
+        }
+    
+        .step-card {
+            position: relative;
+            padding-left: 3rem;
+        }
+    
+        .step-card::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary);
+            color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+    
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQSDFVMHB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XJQSDFVMHB');
+    </script></head>
+<body class="bg-white">
+<header class="bg-white border-b-4 border-gray-900 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <!-- Logo and Brand -->
+            <div class="flex items-center">
+                <a href="/" class="flex items-center">
+                    <img src="/assets/images/NotesAnkify-icon.svg" alt="NotesAnkify" class="h-10 w-auto">
+                    <h1 class="ml-2 text-2xl font-bold text-gray-900">NotesAnkify</h1>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/#features" class="text-gray-900 hover:text-primary font-bold">Features</a>
+                <a href="/#getting-started" class="text-gray-900 hover:text-primary font-bold">Getting Started</a>
+                <a href="/#download" class="text-gray-900 hover:text-primary font-bold">Download</a>
+                <a href="/docs" class="text-gray-900 hover:text-primary font-bold">Documentation</a>
+                <a href="/support" class="text-gray-900 hover:text-primary font-bold">Support</a>
+                <a href="https://github.com/kpauljoseph/notesankify"
+                   class="neo-button px-4 py-2 text-gray-900 font-bold"
+                   target="_blank" rel="noopener">GitHub</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-900 hover:text-[#FF6B6B] focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 border-t-2 border-gray-100">
+                <a href="/#features" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-[#FF6B6B]">Features</a>
+                <a href="/#getting-started" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-[#FF6B6B]">Getting Started</a>
+                <a href="/#download" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-[#FF6B6B]">Download</a>
+                <a href="/docs" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-[#FF6B6B]">Documentation</a>
+                <a href="/support" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-[#FF6B6B]">Support</a>
+                <a href="https://github.com/kpauljoseph/notesankify"
+                   class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-[#FF6B6B]"
+                   target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Sidebar -->
+    <div class="lg:w-1/4">
+        <div class="doc-sidebar neo-card p-4">
+            &lt;ul class&#x3D;&quot;space-y-6&quot;&gt;
+            &lt;li&gt;
+                &lt;a href&#x3D;&quot;/README.html&quot; class&#x3D;&quot;text-gray-900 hover:text-[#FF6B6B] font-bold&quot;&gt;
+                    README
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href&#x3D;&quot;/getting-started.html&quot; class&#x3D;&quot;text-gray-900 hover:text-[#FF6B6B] font-bold&quot;&gt;
+                    Getting Started
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href&#x3D;&quot;/troubleshooting.html&quot; class&#x3D;&quot;text-gray-900 hover:text-[#FF6B6B] font-bold&quot;&gt;
+                    Troubleshooting
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;h3 class&#x3D;&quot;font-bold text-lg mb-2&quot;&gt;Usage&lt;/h3&gt;
+                &lt;ul class&#x3D;&quot;space-y-2 pl-4&quot;&gt;
+                    &lt;li&gt;
+                        &lt;a href&#x3D;&quot;/usage/anki-integration.html&quot; class&#x3D;&quot;text-gray-900 hover:text-[#FF6B6B]&quot;&gt;
+                            Anki Integration
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href&#x3D;&quot;/usage/file-preparation.html&quot; class&#x3D;&quot;text-gray-900 hover:text-[#FF6B6B]&quot;&gt;
+                            File Preparation
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a href&#x3D;&quot;/usage/processing-modes.html&quot; class&#x3D;&quot;text-gray-900 hover:text-[#FF6B6B]&quot;&gt;
+                            Processing Modes
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;&lt;/ul&gt;
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="lg:w-3/4">
+        <div class="neo-card p-8 bg-white">
+            <h1 class="text-4xl font-bold mb-8">Getting Started</h1>
+            &lt;h1 id&#x3D;&quot;getting-started&quot;&gt;Getting Started&lt;/h1&gt;
+&lt;p&gt;Basic steps to get started with NotesAnkify.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install Anki&lt;/li&gt;
+&lt;li&gt;Install AnkiConnect addon&lt;/li&gt;
+&lt;li&gt;Download and run NotesAnkify&lt;/li&gt;
+&lt;/ol&gt;
+
+        </div>
+    </div>
+</div>
+
+<footer class="bg-white border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About -->
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="text-lg font-bold mb-4">About NotesAnkify</h3>
+                <p class="text-gray-600">
+                    An open-source tool to automatically convert PDF notes into Anki flashcards.
+                    Created to make studying more efficient and effective.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="/#features" class="text-gray-600 hover:text-[#FF6B6B]">Features</a></li>
+                    <li><a href="/#getting-started" class="text-gray-600 hover:text-[#FF6B6B]">Getting Started</a></li>
+                    <li><a href="/docs" class="text-gray-600 hover:text-[#FF6B6B]">Documentation</a></li>
+                    <li><a href="/#faq" class="text-gray-600 hover:text-[#FF6B6B]">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://github.com/kpauljoseph/notesankify" class="text-gray-600 hover:text-[#FF6B6B]">GitHub</a></li>
+                    <li><a href="/support" class="text-gray-600 hover:text-[#FF6B6B]">Support</a></li>
+                    <li><a href="https://github.com/kpauljoseph/notesankify/issues" class="text-gray-600 hover:text-[#FF6B6B]">Report Issues</a></li>
+                    <li><a href="/privacy" class="text-gray-600 hover:text-[#FF6B6B]">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-gray-200">
+            <div class="text-center">
+                <p class="text-gray-600">
+                    &copy; 2024 NotesAnkify. Open source under MIT License.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const closeIcon = document.querySelector('.close-icon');
+
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
+</script>
+</body>
+</html>
