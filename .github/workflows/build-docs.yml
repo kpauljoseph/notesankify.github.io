@@ -7,6 +7,7 @@ on:
       - 'content/**'
       - '_templates/**'
       - 'scripts/**'
+  workflow_dispatch:
 
 jobs:
   build:
