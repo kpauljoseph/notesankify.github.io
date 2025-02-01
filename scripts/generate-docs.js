@@ -87,13 +87,12 @@ function formatTitle(name) {
 }
 
 function processMarkdown(content) {
-    // Configure marked options if needed
-    marked.setOptions({
+    marked.use({
         headerIds: true,
         gfm: true
     });
 
-    return marked(content);
+    return marked.parse(content);
 }
 
 async function generateDocs() {
