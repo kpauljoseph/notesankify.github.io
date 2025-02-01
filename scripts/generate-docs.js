@@ -1,8 +1,6 @@
-import { marked } from 'marked'
-
 const fs = require('fs-extra');
 const path = require('path');
-// const marked = require('marked');
+const marked = require('marked');
 const handlebars = require('handlebars');
 
 const CONTENT_DIR = path.join(__dirname, '../content');
