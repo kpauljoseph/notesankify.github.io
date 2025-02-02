@@ -6,6 +6,7 @@
     "build:docs": "node scripts/generate-docs.js"
   },
   "dependencies": {
-    "marked": "4.3.0"
+    "marked": "4.3.0",
+    "handlebars": "^4.7.8"
   }
 }
