@@ -18,7 +18,156 @@
     <div class="lg:w-3/4">
         <div class="neo-card p-8 bg-white">
             <h1 class="text-4xl font-bold mb-8">{{title}}</h1>
-            <h1 id="readme">README</h1>
+            <h1 id="notesankify-documentation">NotesAnkify Documentation</h1>
+<p>Convert your PDF notes to Anki flashcards automatically. This tool monitors a directory for PDFs containing flashcards, processes them based on specified page dimensions, and creates/updates Anki decks while maintaining learning progress.</p>
+<h2 id="quick-start-guide">Quick Start Guide</h2>
+<ol>
+<li><p><strong>Install Prerequisites</strong></p>
+<ul>
+<li>Download <a href="https://apps.ankiweb.net/">Anki Desktop</a></li>
+<li>Install <a href="https://ankiweb.net/shared/info/2055492159">AnkiConnect</a> add-on</li>
+<li>Download NotesAnkify for your platform</li>
+</ul>
+</li>
+<li><p><strong>Format Your Notes</strong></p>
+<ul>
+<li>Add QUESTION/ANSWER markers, or</li>
+<li>Use standard dimensions (455.04 × 587.52 points), or</li>
+<li>Split pages into top (question) and bottom (answer)</li>
+</ul>
+</li>
+<li><p><strong>Convert to Flashcards</strong></p>
+<ul>
+<li>Start Anki</li>
+<li>Launch NotesAnkify</li>
+<li>Select PDF directory</li>
+<li>Choose processing mode</li>
+<li>Click &quot;Process and Send to Anki&quot;</li>
+</ul>
+</li>
+</ol>
+<h2 id="processing-modes">Processing Modes</h2>
+<h3 id="1-markers--dimensions-mode">1. Markers + Dimensions Mode</h3>
+<ul>
+<li><strong>Requirements</strong>:<ul>
+<li>QUESTION/ANSWER markers</li>
+<li>Standard dimensions</li>
+</ul>
+</li>
+<li><strong>Best for</strong>: Consistent, precise flashcard creation</li>
+<li><strong>Use when</strong>: Using GoodNotes templates</li>
+</ul>
+<h3 id="2-markers-only-mode">2. Markers Only Mode</h3>
+<ul>
+<li><strong>Requirements</strong>: Only QUESTION/ANSWER markers</li>
+<li><strong>Best for</strong>: Mixed page sizes</li>
+<li><strong>Use when</strong>: Taking notes in different formats</li>
+</ul>
+<h3 id="3-dimensions-only-mode">3. Dimensions Only Mode</h3>
+<ul>
+<li><strong>Requirements</strong>: Standard flashcard dimensions</li>
+<li><strong>Best for</strong>: Template-based notes</li>
+<li><strong>Use when</strong>: Using consistent templates without markers</li>
+</ul>
+<h3 id="4-process-all-pages-mode">4. Process All Pages Mode</h3>
+<ul>
+<li><strong>Requirements</strong>: None</li>
+<li><strong>Best for</strong>: Quick conversions</li>
+<li><strong>Use when</strong>: Pages are already in question/answer format</li>
+</ul>
+<h2 id="file-preparation">File Preparation</h2>
+<h3 id="using-markers">Using Markers</h3>
+<p>QUESTION
+What is photosynthesis?
+ANSWER
+Process where plants convert...</p>
+<h3 id="using-standard-dimensions">Using Standard Dimensions</h3>
+<ul>
+<li>Width: 455.04 points</li>
+<li>Height: 587.52 points</li>
+<li>Question on top half</li>
+<li>Answer on bottom half</li>
+</ul>
+<h2 id="deck-organization">Deck Organization</h2>
+<p>PDFs are organized into Anki decks following your folder structure:
+PDFs/
+└── Biology/
+├── Chapter1.pdf
+└── Chapter2.pdf
+└── Chemistry/
+└── Notes.pdf
+Results in:</p>
+<p>Biology::Chapter1
+Biology::Chapter2
+Chemistry::Notes</p>
+<h2 id="common-issues">Common Issues</h2>
+<h3 id="connection-issues">Connection Issues</h3>
+<ul>
+<li>Error: &quot;Could not connect to Anki&quot;<ol>
+<li>Ensure Anki is running</li>
+<li>Check if AnkiConnect is installed</li>
+<li>Restart Anki and try again</li>
+</ol>
+</li>
+</ul>
+<h3 id="processing-issues">Processing Issues</h3>
+<ul>
+<li>No flashcards created?<ol>
+<li>Verify PDF formatting</li>
+<li>Check chosen processing mode</li>
+<li>Review processing report</li>
+</ol>
+</li>
+</ul>
+<h3 id="permission-issues">Permission Issues</h3>
+<ul>
+<li>Access Denied Errors?<ol>
+<li>Run as administrator (Windows)</li>
+<li>Check folder permissions</li>
+<li>Verify write access to output directory</li>
+</ol>
+</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="can-i-modify-cards-after-theyre-created">Can I modify cards after they&#39;re created?</h3>
+<p>Yes, you can edit any flashcard directly in Anki after creation.</p>
+<h3 id="will-my-cards-sync-to-ankiweb">Will my cards sync to AnkiWeb?</h3>
+<p>Yes, cards will sync normally through Anki&#39;s built-in synchronization.</p>
+<h3 id="does-it-work-with-handwritten-notes">Does it work with handwritten notes?</h3>
+<p>Yes, NotesAnkify works with any PDF content, including handwritten notes, typed text, or diagrams.</p>
+<h3 id="what-note-taking-apps-are-supported">What note-taking apps are supported?</h3>
+<ul>
+<li>GoodNotes</li>
+<li>Notability</li>
+<li>OneNote (exported as PDF)</li>
+<li>Any app that can export to PDF</li>
+</ul>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="output-directory">Output Directory</h3>
+<ul>
+<li>Save processed flashcard images</li>
+<li>Review conversion results</li>
+<li>Debug processing issues</li>
+</ul>
+<h3 id="duplicate-detection">Duplicate Detection</h3>
+<ul>
+<li>Automatic hash generation</li>
+<li>Checks existing cards</li>
+<li>Prevents duplicates</li>
+</ul>
+<h3 id="processing-report">Processing Report</h3>
+<ul>
+<li>Total PDFs processed</li>
+<li>Flashcards created</li>
+<li>Processing time</li>
+<li>Log file location</li>
+</ul>
+<h2 id="need-help">Need Help?</h2>
+<ul>
+<li><a href="https://github.com/kpauljoseph/notesankify/issues">Create an Issue</a></li>
+<li><a href="https://github.com/kpauljoseph/notesankify/discussions">Join Discussions</a></li>
+<li>Check the <a href="https://github.com/kpauljoseph/notesankify/wiki">Wiki</a></li>
+</ul>
 
         </div>
     </div>
