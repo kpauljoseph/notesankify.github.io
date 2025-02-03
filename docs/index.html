@@ -119,6 +119,11 @@
             border-left-color: #FF5252;
             background-color: #f3f4f6;
         }
+
+        .doc-content h2,
+        .doc-content h3 {
+            scroll-margin-top: 6rem;
+        }
     </style>
     <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQSDFVMHB"></script>
@@ -469,37 +474,47 @@ Process where plants convert...</p>
 
             const isSubheading = heading.tagName === 'H3';
             toc += `
-                    <a href="#${heading.id}"
-                       class="nav-link ${isSubheading ? 'ml-4' : 'font-bold'}">
-                        ${heading.textContent}
-                    </a>
-                `;
+                <a href="#${heading.id}"
+                   class="nav-link ${isSubheading ? 'ml-4' : 'font-bold'}">
+                    ${heading.textContent}
+                </a>
+            `;
         });
 
         sidebar.innerHTML = toc;
 
-        // Add smooth scrolling
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1);
-                document.getElementById(targetId).scrollIntoView({
-                    behavior: 'smooth'
+                const targetElement = document.getElementById(targetId);
+
+                // Scroll to element
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             });
         });
 
-        // Highlight active section
+        const observerOptions = {
+            rootMargin: '-100px 0px -100% 0px', // Adjust these values to control when a section is considered active
+            threshold: 0
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const menuItem = sidebar.querySelector(`[href="#${id}"]`);
+
                 if (entry.isIntersecting) {
                     document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.toggle('active',
-                            link.getAttribute('href') === '#' + entry.target.id);
+                        link.classList.remove('active');
                     });
+                    menuItem?.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
         headings.forEach(heading => observer.observe(heading));
     });
