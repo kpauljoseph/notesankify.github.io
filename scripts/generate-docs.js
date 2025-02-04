@@ -13,7 +13,12 @@ async function generateDocs() {
 
         // Convert markdown to HTML
         const content = marked(markdown);
-        const title = markdown.split('\n')[0].replace('# ', '');
+
+        // Find the first text-only heading, skipping any HTML
+        const title = markdown
+            .split('\n')
+            .find(line => line.startsWith('# ') && !line.includes('<'))
+            ?.replace('# ', '') || 'NotesAnkify Documentation';
 
         // Compile template
         const template = Handlebars.compile(templateContent);
