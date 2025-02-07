@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>NotesAnkify - Flashcard Template</title>
+    <meta name="title" content="NotesAnkify - Download Flashcard Template">
+    <meta name="description" content="Download the NotesAnkify flashcard template optimized for automatic processing. Perfect for GoodNotes, Notability, and other PDF note-taking apps.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/NotesAnkify-icon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: rgba(255, 82, 82, 0.8);
+            --primary-dark: #FF5252;
+            --secondary: #2D2D2D;
+            --accent: #4ECDC4;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .neo-card {
+            background: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+        }
+
+        .download-button {
+            background: var(--primary);
+            color: white;
+            border: 4px solid var(--secondary);
+            box-shadow: 8px 8px 0 var(--secondary);
+            transition: all 0.2s ease;
+            transform: translate(-4px, -4px);
+        }
+
+        .download-button:hover {
+            transform: translate(0, 0);
+            box-shadow: 4px 4px 0 var(--secondary);
+            background: var(--primary-dark);
+        }
+    </style>
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJQSDFVMHB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XJQSDFVMHB');
+    </script>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-white border-b-4 border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="/" class="flex items-center">
+                <img src="/assets/images/NotesAnkify-icon.svg" alt="NotesAnkify" class="h-10 w-auto">
+                <h1 class="ml-2 text-2xl font-bold text-gray-900">NotesAnkify</h1>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-2xl mx-auto">
+            <div class="neo-card p-8">
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold mb-4">Flashcard Template</h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Download template for creating Anki flashcards with NotesAnkify.
+                    </p>
+                </div>
+
+                <div class="space-y-6 mb-8">
+                    <div class="space-y-2">
+                        <p class="font-bold">Template Details:</p>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>Dimensions: 455.04 × 587.52 points</li>
+                            <li>Pre-marked question and answer sections</li>
+                            <li>Compatible with GoodNotes and Notability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="/flashcard-template.pdf"
+                       download="NotesAnkify-Flashcard-Template.pdf"
+                       onclick="gtag('event', 'download', {'event_category': 'template', 'event_label': 'flashcard_template'});"
+                       class="download-button px-8 py-4 text-xl font-bold inline-block">
+                        ⬇️ Download Template
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white border-t-4 border-gray-900">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <p class="text-gray-600">&copy; 2024 NotesAnkify. Open source under MIT License.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
