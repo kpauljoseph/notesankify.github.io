@@ -242,8 +242,8 @@ NotesAnkify bridges this gap by:</p>
 </ul>
 <h2 id="my-setup">My Setup</h2>
 <ul>
-<li>GoodNotes for notes. Although, NotesAnkify will work with any app as long as the notes are available as pdf files.</li>
-<li>Add flashcards with the in-built flashcard template along with regular note pages.</li>
+<li>GoodNotes for notes. Although, NotesAnkify will work with any app as long as the notes(with flashcards) are available as pdf files.</li>
+<li>Add flashcards with the in-built flashcard template(Goodnotes Standard Size Flashcard) along with regular note pages.</li>
 <li>Automatic Backup to OneDrive. (GoodNotes and PDF)</li>
 <li>Download backup folder with all notes and pdf files.</li>
 <li>Run NotesAnkify on this downloaded folder to extract all flashcards and send it to Anki.</li>
@@ -283,23 +283,48 @@ The page will be cut in half, top -&gt; Question card, bottom -&gt; Answer card<
 </ul>
 </li>
 </ol>
-<p>// INSERT IMAGE - Screenshot of NotesAnkify&#39;s main interface with key areas highlighted and numbered according to the steps above</p>
 <h2 id="installation">Installation</h2>
 <h3 id="windows">Windows</h3>
+<p>We haven&#39;t setup a developer account with Windows yet, so the app might trigger an alert saying it&#39;s unverified and dangerous.
+If you&#39;re not comfortable downloading this, you could also checkout the Github page and build the app yourself locally or download the app from Github packages.</p>
+<p>Steps:  </p>
 <ol>
 <li>Download the ZIP file for your system (AMD64/ARM64)</li>
 <li>Extract the ZIP file to your desired location</li>
+<li>When you try to run an unverified app, Windows SmartScreen will show a warning message to protect you from potentially harmful software.<br>Here are the exact steps to proceed with installation:<br>When you first try to run the unverified app&#39;s installer or executable, you&#39;ll likely see a blue window with the message &quot;Windows protected your PC&quot; and &quot;Windows SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.&quot;
+To proceed:<ul>
+<li>Click on &quot;More info&quot; in this blue warning window </li>
+<li>After clicking &quot;More info,&quot; a new button will appear that says &quot;Run anyway&quot;</li>
+<li>Click &quot;Run anyway&quot; to proceed with the installation </li>
+<li>If you encounter a User Account Control (UAC) prompt next (a window asking &quot;Do you want to allow this app to make changes to your device?&quot;):</li>
+<li>Verify that the publisher name matches what you expect </li>
+<li>Click &quot;Yes&quot; to continue the installation </li>
+<li>Note: It&#39;s important to understand that Windows shows these warnings because unverified apps haven&#39;t been signed with a certificate from a trusted developer. Only proceed with installation if you trust the source of the app and have downloaded it from the developer&#39;s official website. Think of it like checking ID at a security checkpoint – Windows is simply asking you to vouch for the app&#39;s trustworthiness.</li>
+</ul>
+</li>
 <li>Run NotesAnkify.exe</li>
 </ol>
-<p>// INSERT IMAGE - Screenshot showing Windows security warning with &quot;More info&quot; and &quot;Run anyway&quot; buttons highlighted</p>
 <h3 id="macos">macOS</h3>
+<p>We haven&#39;t setup a developer account with Apple yet, so the app might trigger an alert saying it&#39;s unverified and dangerous.
+If you&#39;re not comfortable downloading this, you could also checkout the Github page and build the app yourself locally or download the app from Github packages.</p>
+<p>Steps to Download:  </p>
 <ol>
-<li>Download the DMG file</li>
-<li>Open the DMG file</li>
-<li>Drag NotesAnkify to your Applications folder </li>
-<li>Right-click and select &quot;Open&quot; on first launch</li>
+<li><p>Download the DMG file</p>
+</li>
+<li><p>Open the DMG file</p>
+</li>
+<li><p>Drag NotesAnkify to your Applications folder</p>
+</li>
+<li><p>First, try to open the app normally by double-clicking it. You&#39;ll see a message saying the app 
+&quot;cannot be opened because it is from an unidentified developer.&quot; At this point, clicking &quot;Cancel&quot; will just close the message.
+<img src="./images/macos-unverfied-developer-alert.png" alt="MacOSUnverfiedDeveloperAlert"></p>
+<p>Instead, right-click (or Control+click) on the app in Finder and select &quot;Open&quot; from the menu.
+This time, you&#39;ll see a similar warning message, but it will include an &quot;Open&quot; button. 
+When you open the app this way, macOS remembers your choice and won&#39;t show the warning again for this specific app.
+If you don&#39;t see the &quot;Open&quot; option, you can also adjust your security settings:<br>Open System Settings (or System Preferences in older versions),<br>Go to &quot;Privacy &amp; Security&quot;,<br>Look for the message about the blocked app under &quot;Security&quot;,<br>Click &quot;Open Anyway&quot;<br><img src="./images/macos-ctrl-click-open.png" alt="MacOSUnverfiedDeveloperCtrlClickOpen"></p>
+</li>
 </ol>
-<p>// INSERT IMAGE - Screenshot showing macOS Gatekeeper dialog with right-click menu open</p>
+<p>Note: It&#39;s worth understanding that Apple includes these safeguards because unverified apps could potentially contain malware or other security risks. Before installing any unverified app, make sure you trust its source and have downloaded it from the developer&#39;s official website.</p>
 <h3 id="linux">Linux</h3>
 <ol>
 <li>Download the tar.xz file </li>
@@ -364,19 +389,11 @@ Process where plants convert...</p>
 <p>// INSERT IMAGE - Side-by-side comparison showing example pages that work with each mode</p>
 <h2 id="deck-organization">Deck Organization</h2>
 <p>Your PDFs are organized into Anki decks following your folder structure:</p>
-<p>PDFs/
-└── Biology/
-├── Chapter1.pdf
-└── Chapter2.pdf
-└── Chemistry/
-└── Notes.pdf</p>
-<p>Results in:</p>
-<ul>
-<li>Biology::Chapter1</li>
-<li>Biology::Chapter2</li>
-<li>Chemistry::Notes</li>
-</ul>
-<p>// INSERT IMAGE - Screenshot showing the folder structure on the left and resulting Anki deck organization on the right</p>
+<p>PDF Source Directory: <code>PDF_Files</code>
+<img src="./images/pdf-files-directory-structure.png" alt="PDFSource"></p>
+<p>Root Deck: <code>NotesAnkify</code></p>
+<p>Resulting Anki Deck Structure: 
+<img src="./images/notesankify-anki-deck-structure.png" alt="AnkiDeckStructure"></p>
 <h2 id="advanced-features">Advanced Features</h2>
 <h3 id="duplicate-detection--smart-updating">Duplicate Detection &amp; Smart Updating</h3>
 <p>NotesAnkify uses a technique called &quot;hashing&quot; to manage flashcards intelligently. Think of a hash as a unique fingerprint for each flashcard - even a tiny change will create a different fingerprint.</p>
@@ -388,7 +405,7 @@ Process where plants convert...</p>
 <li>This hash is stored with the flashcard in Anki</li>
 <li>When processing PDFs again:<ul>
 <li>Same content = Same hash = Skip (prevent duplicate)</li>
-<li>Changed content = New hash = Update card</li>
+<li>Changed content = New hash = Add card</li>
 </ul>
 </li>
 </ol>
@@ -410,7 +427,6 @@ Process where plants convert...</p>
 <ul>
 <li>Recognize they&#39;re the same card</li>
 <li>Only create it once in Anki</li>
-<li>Update it if you make changes in either place</li>
 </ul>
 <h3 id="output-directory">Output Directory</h3>
 <p>Save processed flashcard images to:</p>
